@@ -1,0 +1,20 @@
+.form {
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin: 30px 0;
+}
+
+.button {
+	background-color: brown;
+	padding: 7px 15px;
+	border-radius: 3px;
+}
+
+.input {
+	background-color: aliceblue;
+	padding: 4px 10px;
+	border-radius: 3px;
+	color: #000;
+}

@@ -1,0 +1,19 @@
+.checkbox {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	max-width: 300px;
+}
+
+.button {
+	background-color: cadetblue;
+	padding: 7px 15px;
+	border-radius: 3px;
+	color: bisque;
+
+	&:disabled {
+		background-color: antiquewhite;
+		cursor: default;
+		color: lightslategray;
+	}
+}

@@ -1,0 +1,14 @@
+.search {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0 30px;
+	max-width: 300px;
+	gap: 15px;
+}
+
+.input {
+	background-color: aliceblue;
+	padding: 4px 10px;
+	border-radius: 3px;
+	color: #000;
+}
