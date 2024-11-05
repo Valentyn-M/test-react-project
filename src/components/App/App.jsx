@@ -11,6 +11,7 @@ import initialTasks from "../../assets/tasks.json";
 import Form from "../Filter/Form/Form";
 import Filter from "../Filter/Filter/Filter";
 import TaskList from "../Filter/TaskList/TaskList";
+import FeedbackForm from "../FeedbackForm/FeedbackForm";
 
 export default function App() {
 
@@ -62,12 +63,15 @@ export default function App() {
 
 			<LoginFormControlled />
 
-			<h2>Filter Block</h2>
+			<h2><strong>Filter Block</strong></h2>
 			<div className={css.container}>
 				<Form onAdd={addTask} />
 				<Filter value={filter} onFilter={setFilter} />
 				<TaskList tasks={visibleTasks} onDelete={deleteTask} />
 			</div>
+
+			<h2><strong>Formik</strong></h2>
+			<FeedbackForm />
 
 		</div>
 	);
