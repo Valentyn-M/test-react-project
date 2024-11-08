@@ -1,78 +1,33 @@
-import { useState } from "react";
-import css from "./App.module.css"
-import LangSwitcher from "../LangSwitcher/LangSwitcher";
-import LoginForm from "../LoginForm/LoginForm";
-import LoginFormControlled from "../LoginFormControlled/LoginFormControlled";
-import SearchBar from "../SearchBar/SearchBar";
-import CoffeeRadio from "../CoffeeRadio/CoffeeRadio";
-import ConditionsCheckbox from "../ConditionsCheckbox/ConditionsCheckbox";
-
-import initialTasks from "../../assets/tasks.json";
-import Form from "../Filter/Form/Form";
-import Filter from "../Filter/Filter/Filter";
-import TaskList from "../Filter/TaskList/TaskList";
-import FeedbackForm from "../FeedbackForm/FeedbackForm";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import s from "./App.module.css"
+import ArticleList from "../ArticleList/ArticleList";
 
 export default function App() {
 
-	// Колбек-функція для обробки сабміту форми
-	const handleLogin = (userData) => {
-		// Виконуємо необхідні операції з даними
-		console.log(userData);
-	};
+	// 1. Оголошуємо стан
+	const [articles, setArticles] = useState([]);
 
-	// Підйому стану iз компонента LangSwitcher
-	const [lang, setLang] = useState("uk");
+	useEffect(() => {
+		// 	// 1. Оголошуємо асинхронну функцію
+		async function fetchArticles() {
+			const response = await axios.get(
+				"https://hn.algolia.com/api/v1/search?query=react"
+			);
+			// 2. Записуємо дані в стан
+			setArticles(response.data.hits);
+			console.log(articles);
+		}
 
-	// Filter
-	const [tasks, setTasks] = useState(initialTasks);
-	const [filter, setFilter] = useState('');
-
-	const addTask = (newTask) => {
-		setTasks((prevTasks) => {
-			return [...prevTasks, newTask];
-		});
-	};
-
-	const deleteTask = (taskId) => {
-		setTasks((prevTasks) => {
-			return prevTasks.filter((task) => task.id !== taskId);
-		});
-	};
-
-	const visibleTasks = tasks.filter((task) =>
-		task.text.toLowerCase().includes(filter.toLowerCase())
-	);
+		// 2. Викликаємо її одразу після оголошення
+		fetchArticles();
+	}, []);
 
 	return (
 		<div>
+			<h1 className={s.title}>Latest articles</h1>
 
-			<h1>Please login to your account!</h1>
-			{/* Передаємо колбек як пропс форми */}
-			<LoginForm onLogin={handleLogin} />
-
-			<h2>Search</h2>
-			<SearchBar />
-
-			<p>Selected language: </p>
-			<LangSwitcher value={lang} onSelect={setLang} />
-
-			<CoffeeRadio />
-
-			<ConditionsCheckbox />
-
-			<LoginFormControlled />
-
-			<h2><strong>Filter Block</strong></h2>
-			<div className={css.container}>
-				<Form onAdd={addTask} />
-				<Filter value={filter} onFilter={setFilter} />
-				<TaskList tasks={visibleTasks} onDelete={deleteTask} />
-			</div>
-
-			<h2><strong>Formik</strong></h2>
-			<FeedbackForm />
-
+			{articles.length > 0 && <ArticleList items={articles} />}
 		</div>
 	);
 }
