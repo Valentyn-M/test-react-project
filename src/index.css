@@ -9,13 +9,13 @@
 } */
 
 a {
-	text-decoration: none;
+	/* text-decoration: none; */
 	color: inherit;
 }
 
 ul,
 ol {
-	list-style: none;
+	/* list-style: none; */
 }
 
 h1,
@@ -55,7 +55,7 @@ img {
 /* Project settings */
 body {
 	min-height: 100vh;
-	line-height: 1;
+	/* line-height: 1; */
 	overflow-wrap: break-word;
 	min-width: 320px;
 	font-size: 16px;
@@ -64,8 +64,12 @@ body {
 	background-color: #1C1C1C;
 }
 
-#root {
-	max-width: 1200px;
-	padding: 15px;
-	margin: 0 auto;
+h1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 28px;
+	font-weight: bold;
 }
