@@ -1,7 +1,7 @@
 // 1. Імпортуємо хук
 import { useDispatch } from 'react-redux';
 // 2. Імпортуємо фабрику екшену
-import { deleteTask, toggleCompleted } from '../../redux/tasksReducer';
+import { deleteTask, toggleCompleted } from '../../redux/tasksSlice';
 
 import { MdClose } from 'react-icons/md';
 import css from './Task.module.css';

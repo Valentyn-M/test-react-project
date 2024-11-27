@@ -1,7 +1,7 @@
 // 1. Імпортуємо хук
 import { useDispatch } from 'react-redux';
 // 2. Імпортуємо фабрику екшену
-import { addTask } from '../../redux/tasksReducer';
+import { addTask } from '../../redux/tasksSlice';
 
 import { Button } from '../Button/Button';
 import css from './TaskForm.module.css';

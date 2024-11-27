@@ -1,7 +1,7 @@
 // 1. Імпортуємо хук
 import { useSelector, useDispatch } from 'react-redux';
 // 2. Імпортуємо фабрику екшену
-import { setStatusFilter } from '../../redux/filtersReducer';
+import { setStatusFilter } from '../../redux/filtersSlice';
 
 import { Button } from '../Button/Button';
 import css from './StatusFilter.module.css';

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import tasksReducer from './tasksReducer';
-import filtersReducer from './filtersReducer';
+import tasksReducer from './tasksSlice';
+import filtersReducer from './filtersSlice';
 
 // Код оголошення редюсерів слайсів
 export const store = configureStore({

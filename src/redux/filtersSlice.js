@@ -7,10 +7,8 @@ const slice = createSlice({
 	},
 	reducers: {
 		setStatusFilter(state, action) {
-			return {
-				...state,
-				status: action.payload,
-			};
+			// ✅ Immer замінить це на операцію оновлення
+			state.status = action.payload;
 		},
 	},
 });
