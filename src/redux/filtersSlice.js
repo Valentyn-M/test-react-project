@@ -1,21 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const slice = createSlice({
-	name: "filters",
+const filtersSlice = createSlice({
+	name: 'filters',
 	initialState: {
-		status: "all",
+		status: 'all',
 	},
 	reducers: {
 		setStatusFilter(state, action) {
-			// ✅ Immer замінить це на операцію оновлення
 			state.status = action.payload;
 		},
 	},
 });
 
+export const { setStatusFilter } = filtersSlice.actions;
 
-// Експортуємо фабрики екшенів
-export const { setStatusFilter } = slice.actions;
-
-// Експортуємо редюсер слайсу
-export default slice.reducer;
+export default filtersSlice.reducer;

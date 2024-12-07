@@ -8,7 +8,13 @@ export const Button = ({
 	...otherProps
 }) => {
 	return (
-		<button className={clsx(css.btn, { [css.isSelected]: selected, })} type={type} {...otherProps}>
+		<button
+			className={clsx(css.btn, {
+				[css.isSelected]: selected,
+			})}
+			type={type}
+			{...otherProps}
+		>
 			{children}
 		</button>
 	);
